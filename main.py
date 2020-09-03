@@ -23,6 +23,7 @@ from linebot.models import (
 import os
 import io
 from io import BytesIO
+import requests
 
 app = Flask(__name__)
 
@@ -111,11 +112,6 @@ def getImageLine(id):
     #Face_api.pyに送られてきた画像を投げる
     print(event.contentProvider.originalContentUrl)
 '''
-
-
-
-
-
 
 
 # ポート番号の設定
