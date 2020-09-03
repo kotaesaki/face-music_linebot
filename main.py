@@ -74,6 +74,32 @@ def handle_message(event):
     message_id = event.message.id
     print(message_id)
 
+    getImageLine(message_id)
+
+    line_bot_api.reply_message(
+    event.reply_token,
+    TextSendMessage(text="画像だね"))
+    print("画像だよ")
+
+def getImageLine(id):
+    #送られてきた画像のurl
+    line_url = 'https://api.line.me/v2/bot/message/' + id + '/content/'
+
+    # 画像の取得
+    result = requests.get(line_url, headers=header)
+    print(result)
+
+    # 画像の保存
+    im = Image.open(BytesIO(result.content))
+    filename = '/tmp/' + id + '.jpg'
+    print(filename)
+    im.save(filename)
+
+    return filename
+
+
+
+'''
     message_content = line_bot_api.get_message_content(message_id)
     print(message_content)
 
@@ -84,12 +110,9 @@ def handle_message(event):
     #print(image)
     #Face_api.pyに送られてきた画像を投げる
     print(event.contentProvider.originalContentUrl)
+'''
 
 
-    line_bot_api.reply_message(
-    event.reply_token,
-    TextSendMessage(text="画像だね"))
-    print("画像だよ")
 
 
 
