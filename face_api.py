@@ -28,14 +28,14 @@ def FaceApi(file):
 	ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
 
 	#画像のurl
-	image_url = file
+	image_url = "IMG_2179.jpeg"
 
 	CF.Key.set(KEY)
 	CF.BaseUrl.set(ENDPOINT)
 
 	faces = CF.face.detect(image_url, attributes='emotion')
 	# 出力結果を見やすく整形
-	result_formated = json.dumps(faces, indent=4, separators=(',', ': '))
+	result_formated = json.load(faces)
 
 	print (codecs.decode(result_formated, 'unicode-escape'))
 
