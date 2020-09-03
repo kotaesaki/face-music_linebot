@@ -40,7 +40,7 @@ def FaceApi(file):
 	print (codecs.decode(result_formated, 'unicode-escape'))
 
 
-	return result_formated[0]{0}{1}
+	return result_formated[0][0][1]
 '''
 	f = open(faces, 'r')
 	json_data = json.load(f)
