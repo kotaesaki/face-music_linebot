@@ -35,7 +35,7 @@ def FaceApi(file):
 
 	faces = CF.face.detect(image_url, attributes='emotion')
 	# 出力結果を見やすく整形
-	json_file = open('faces','r')
+	json_file = open(faces,'r')
 	result_formated = json.load(json_file)
 
 	print (result_formated["faceAttributes"])
