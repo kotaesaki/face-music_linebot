@@ -21,6 +21,7 @@ from linebot.models import (
     )
 
 import os
+from io import ByteIO
 
 app = Flask(__name__)
 
@@ -69,7 +70,17 @@ def handle_message(event):
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_message(event):
 
-    print(message)
+    message_id = event.message.
+    print(message_id)
+
+    message_content = line_bot_api.get_message_content(message_id)
+    print(message_content)
+
+    image_bin = BytesIO(message_content.content)
+    print(image_bin)
+
+    image = image_bin.getvalue()
+    print(image)
     #Face_api.pyに送られてきた画像を投げる
 
 
