@@ -32,11 +32,9 @@ def FaceApi(file):
 	CF.BaseUrl.set(ENDPOINT)
 
 	faces = CF.face.detect(image_url, attributes='emotion')
-
 	# 出力結果を見やすく整形
-    result_formated = json.dumps(faces, indent=4, separators=(',', ': '))
-    print (codecs.decode(result_formated, 'unicode-escape'))
-
+	result_formated = json.dumps(faces, indent=4, separators=(',', ': '))
+	print (codecs.decode(result_formated, 'unicode-escape'))
 
 	return faces
 
