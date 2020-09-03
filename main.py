@@ -70,7 +70,7 @@ def handle_message(event):
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_message(event):
 
-    message_id = event.message.
+    message_id = event.message.id
     print(message_id)
 
     message_content = line_bot_api.get_message_content(message_id)
