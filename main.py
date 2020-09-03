@@ -90,7 +90,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
     event.reply_token,
-    TextSendMessage(text='幸せ度は' + str(face[0]) + '中立は:' + str(face[1]) + '不幸せ度は：'+ str(face[2]))
+    TextSendMessage(text='幸せ度は' + str(face[0]) + '中立は:' + str(face[1]) + '不幸せ度は：'+ str(face[2])))
     print("画像だよ")
 
 def getImageLine(id):
