@@ -48,6 +48,7 @@ def callback():
 def handle_message(event):
     
     if event.message.type == "image":
+        print("画像だよ１")
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="画像だね"))
