@@ -89,7 +89,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
     event.reply_token,
-    TextSendMessage(text="画像だね"))
+    TextSendMessage(text=face_api.FaceApi(getImageLine(message_id))))
     print("画像だよ")
 
 def getImageLine(id):

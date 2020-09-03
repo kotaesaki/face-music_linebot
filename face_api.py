@@ -35,6 +35,10 @@ def FaceApi(file):
 
 	print(faces)
 
+	return faces
+
+
+
 
 
 
