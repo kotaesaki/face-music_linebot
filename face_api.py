@@ -44,7 +44,7 @@ def FaceApi(file):
 
 
 
-	return faces["faceAttributes"]
+	return faces[2]
 '''
 	f = open(faces, 'r')
 	json_data = json.load(f)
