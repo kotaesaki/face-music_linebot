@@ -6,7 +6,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, image
 )
 import os
 
@@ -44,7 +44,7 @@ def callback():
 
 
 #以下でWebhookから送られてきたイベントをどのように処理するかを記述する
-@handler.add(MessageEvent, message)
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     
     if event.message.type == "image":
