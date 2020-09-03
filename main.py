@@ -55,6 +55,7 @@ def handle_message(event):
         print("画像だよ")
 
     else:
+        print("画像じゃないよ")
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="画像じゃないね"))
