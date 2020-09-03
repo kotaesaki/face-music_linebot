@@ -6,7 +6,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage,ImageMessage,
     SourceUser, SourceGroup, SourceRoom,
     TemplateSendMessage, ConfirmTemplate, MessageAction,
     ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
@@ -58,31 +58,31 @@ def callback():
 #以下でWebhookから送られてきたイベントをどのように処理するかを記述する
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    
-    if event.message.type == "image":
-        print("画像だよ１")
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="画像だね"))
-        print("画像だよ")
 
-    elif event.message.type == "text":
-        print("文字だよ")
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="文字ですね"))
-
-    else:
-        print("それ以外")
-        line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="それ以外"))
+    event.message.type == "text":
+    print("文字だよ")
+    line_bot_api.reply_message(
+    event.reply_token,
+    TextSendMessage(text="文字ですね"))
 
     '''
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
     '''
+
+
+@handler.add(MessageEvent, message=ImageMessage)
+def handle_message(event):
+
+    print("画像だよ１")
+    line_bot_api.reply_message(
+    event.reply_token,
+    TextSendMessage(text="画像だね"))
+    print("画像だよ")
+
+
+
 # ポート番号の設定
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
