@@ -21,7 +21,7 @@ from linebot.models import (
     )
 
 import os
-import IO
+import io
 from io import ByteIO
 
 app = Flask(__name__)
