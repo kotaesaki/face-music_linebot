@@ -47,18 +47,24 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     
-    if event.message.type == image:
+    if event.message.type == "image":
         print("画像だよ１")
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text="画像だね"))
         print("画像だよ")
 
-    else:
-        print("画像じゃないよ")
+    elif event.message.type == "text":
+        print("文字だよ")
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="画像じゃないね"))
+        TextSendMessage(text="文字ですね"))
+
+    else:
+        print("それ以外")
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="それ以外"))
 
     '''
     line_bot_api.reply_message(
