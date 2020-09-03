@@ -40,7 +40,7 @@ def FaceApi(file):
 
 	total = faces[0]
 	attr = total['faceAttributes']
-	emotion = attr[0]
+	emotion = attr['emotion']
 	anger = emotion[0]
 	contempt = emotion[1]
 	disgust = emotion[2]
