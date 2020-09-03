@@ -33,7 +33,10 @@ def FaceApi(file):
 
 	faces = CF.face.detect(image_url, attributes='emotion')
 
-	print(faces)
+	# 出力結果を見やすく整形
+    result_formated = json.dumps(faces, indent=4, separators=(',', ': '))
+    print (codecs.decode(result_formated, 'unicode-escape'))
+
 
 	return faces
 
