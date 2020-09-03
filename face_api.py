@@ -33,7 +33,7 @@ def FaceApi(file):
 	CF.Key.set(KEY)
 	CF.BaseUrl.set(ENDPOINT)
 
-	faces = CF.face.detect(image_url, attributes='emotion')
+	faces = CF.face.detect(image_url, face_id=True, landmarks=False, attributes='emotion')
 	# 出力結果を見やすく整形
 	print(type(faces))
 	print (faces[0])
