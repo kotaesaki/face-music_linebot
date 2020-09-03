@@ -80,8 +80,8 @@ def handle_message(event):
     image_bin = BytesIO(message_content.content)
     print(image_bin)
 
-    image = image_bin.getvalue()
-    print(image)
+    #image = image_bin.getvalue()
+    #print(image)
     #Face_api.pyに送られてきた画像を投げる
 
 
