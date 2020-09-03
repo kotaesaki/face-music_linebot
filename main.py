@@ -44,7 +44,7 @@ def callback():
 
 
 #以下でWebhookから送られてきたイベントをどのように処理するかを記述する
-@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, message)
 def handle_message(event):
     
     if event.message.type == "image":
