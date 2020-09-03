@@ -34,6 +34,11 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
+header = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + LINE_CHANNEL_ACCESS_TOKEN
+}
+
 #herokuへのデプロイが成功したかどうかを確認するためのコード
 @app.route("/")
 def hello_world():
