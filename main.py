@@ -81,7 +81,7 @@ def handle_message(event):
     message_id = event.message.id
     print(message_id)
 
-    getImageLine(message_id)
+    print(getImageLine(message_id))
 
     line_bot_api.reply_message(
     event.reply_token,
