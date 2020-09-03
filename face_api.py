@@ -28,7 +28,7 @@ def FaceApi(file):
 	ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
 
 	#画像のurl
-	image_url = "IMG_2179.jpeg"
+	image_url = file
 
 	CF.Key.set(KEY)
 	CF.BaseUrl.set(ENDPOINT)
@@ -37,10 +37,10 @@ def FaceApi(file):
 	# 出力結果を見やすく整形
 	result_formated = json.load(faces)
 
-	print (codecs.decode(result_formated, 'unicode-escape'))
+	print (codecs.decode(result_formated["faceAttributes"], 'unicode-escape'))
 
 
-	return result_formated
+	return result_formated["faceAttributes"]
 '''
 	f = open(faces, 'r')
 	json_data = json.load(f)
