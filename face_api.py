@@ -36,16 +36,62 @@ def FaceApi(file):
 	faces = CF.face.detect(image_url, attributes='emotion')
 	# 出力結果を見やすく整形
 	result_formated = json.dumps(faces, indent=4, separators=(',', ': '))
-	print (codecs.decode(result_formated, 'unicode-escape'))
+	print (codecs.decode(result_formated["faceAttributes"]["emotion"], 'unicode-escape'))
 
+
+	return result_formated["faceAttributes"]["emotion"]
+'''
 	f = open(faces, 'r')
 	json_data = json.load(f)
 
 	name_list = ["anger","contempt","disgust","fear","happiness","neutral","sadness","surprise"]
-	
+
+
 	for name in name_list:
-		print('{0:6s} :{1} '.format(name,json_data["faceAttributes"]["emotion"][name],end='\t')
+		print("{0:6s} ：{1}".format(name,json_data["faceAttributes"]["emotion"][name]),end="\t")
 	#spotify_api.pyに画像感情データを渡す
 	#spotify_api.SpotifyApi(result_formated["faceAttributes"])
-	
-return file
+
+
+
+
+
+
+# Create an authenticated FaceClient.
+face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
+
+headers = {'Ocp-Apim-Subscription-Key': KEY}
+
+params = {
+    'returnFaceId': 'true',
+    'returnFaceLandmarks': 'false',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+}
+
+#JSON出力
+try:
+	response = requests.post(ENDPOINT, params=params,
+                         headers=headers, json={"url": image_url}, timeout=0.1)
+	print(json.dumps(response.json()))
+
+except requests.exceptions.ConnectTimeout:
+	print('エラー！')
+
+
+
+
+single_image_name = os.path.basename(single_face_image_url)
+detected_faces = face_client.face.detect_with_url(url=single_face_image_url)
+if not detected_faces:
+    raise Exception('No face detected from image {}'.format(single_image_name))
+
+# Display the detected face ID in the first single-face image.
+# Face IDs are used for comparison to faces (their IDs) detected in other images.
+print('Detected face ID from', single_image_name, ':')
+for face in detected_faces: print (face.face_id)
+print()
+
+# Save this ID for use in Find Similar
+first_image_face_ID = detected_faces[0].face_id
+
+'''
