@@ -19,12 +19,15 @@ from linebot.models import (
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
     SeparatorComponent
     )
-
 from PIL import Image
 import os
 import io
 from io import BytesIO
 import requests
+
+import face_api
+
+
 
 app = Flask(__name__)
 
@@ -82,6 +85,9 @@ def handle_message(event):
     print(message_id)
 
     print(getImageLine(message_id))
+    
+    #face_api.pyで画像分析
+    face_api.Face_api(filename)
 
     line_bot_api.reply_message(
     event.reply_token,

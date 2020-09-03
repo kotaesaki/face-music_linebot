@@ -17,7 +17,7 @@ from azure.cognitiveservices.vision.face.models import TrainingStatusType, Perso
 import cognitive_face as CF
 
 
-class FaceApi(object):
+def FaceApi(file):
 
 	#サブスクリプションキーの設定
 	KEY = 'a3f5affaebb549449f69ccd3106d3e75'
@@ -26,7 +26,7 @@ class FaceApi(object):
 	ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
 
 	#画像のurl
-	image_url = 'IMG_2179.jpeg'
+	image_url = file
 
 	CF.Key.set(KEY)
 	CF.BaseUrl.set(ENDPOINT)
@@ -35,7 +35,7 @@ class FaceApi(object):
 
 	print(faces)
 
-	
+
 
 
 
