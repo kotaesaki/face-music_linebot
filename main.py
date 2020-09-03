@@ -23,7 +23,7 @@ from PIL import Image
 import os
 import io
 from io import BytesIO
-import requests
+import requests,json
 
 import face_api
 
