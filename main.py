@@ -64,21 +64,21 @@ def handle_message(event):
     event.reply_token,
     TextSendMessage(text="文字ですね"))
 
-    '''
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
-    '''
 
-
+#送られてきたメッセージが画像の場合の処理
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_message(event):
 
-    print("画像だよ１")
+    print(message)
+    #Face_api.pyに送られてきた画像を投げる
+
+
     line_bot_api.reply_message(
     event.reply_token,
     TextSendMessage(text="画像だね"))
     print("画像だよ")
+
+
 
 
 
