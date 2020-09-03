@@ -37,7 +37,9 @@ def FaceApi(file):
 	# 出力結果を見やすく整形
 	result_formated = json.load(faces)
 
-	print (codecs.decode(result_formated["faceAttributes"], 'unicode-escape'))
+	print (result_formated["faceAttributes"])
+	print (result_formated["faceAttributes"]["emotion"])
+
 
 
 	return result_formated["faceAttributes"]

@@ -85,8 +85,7 @@ def handle_message(event):
     print(message_id)
 
     #face_api.pyで画像分析
-    face[] = face_api.FaceApi(getImageLine(message_id))
-    print(face[])
+    face_api.FaceApi(getImageLine(message_id))
 
     line_bot_api.reply_message(
     event.reply_token,
