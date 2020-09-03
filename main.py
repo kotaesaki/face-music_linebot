@@ -83,6 +83,7 @@ def handle_message(event):
     #image = image_bin.getvalue()
     #print(image)
     #Face_api.pyに送られてきた画像を投げる
+    print(event.contentProvider.originalContentUrl)
 
 
     line_bot_api.reply_message(
