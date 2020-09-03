@@ -39,12 +39,12 @@ def FaceApi(file):
 
 	#result_formated = json.load(faces)
 
-	print (faces)
+	print (faces[0])
 	#print (result_formated["faceAttributes"])
 
 
 
-	return faces[2]
+	return faces[0]
 '''
 	f = open(faces, 'r')
 	json_data = json.load(f)
