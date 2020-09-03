@@ -20,11 +20,11 @@ from linebot.models import (
     SeparatorComponent
     )
 
+from PIL import Image
 import os
 import io
 from io import BytesIO
 import requests
-from PIL import Image
 
 app = Flask(__name__)
 
