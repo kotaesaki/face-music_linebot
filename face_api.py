@@ -36,15 +36,47 @@ def FaceApi(file):
 	faces = CF.face.detect(image_url, attributes='emotion')
 	# 出力結果を見やすく整形
 	print(type(faces))
+	print (faces[0])
+
+	attr = faceDictionary['faceAttributes']
+	emotion = attr['emotion']
+	anger = emotion['anger']
+	contempt = emotion['contempt']
+	disgust = emotion['disgust']
+	fear = emotion['fear']
+	happiness = emotion['happiness']
+	neutral = emotion['neutral']
+	sadness = emotion['sadness']
+	surprise = emotion['surprise']
+
+	attr_list = [happiness, neutral, sadness]
+	print(type(attr_list))
+	print(happiness)
+	print(neutral)
+	print(sadness)
+
+	return attr_list
 
 	#result_formated = json.load(faces)
-
-	print (faces[0])
 	#print (result_formated["faceAttributes"])
 
 
 
-	return faces[0]
+
+#faceAttributes項目を入れる
+def getAttributes(faceDictionary):
+	attr = faceDictionary['faceAttributes']
+	emotion = attr['emotion']
+	anger = emotion['anger']
+	contempt = emotion['contempt']
+	disgust = emotion['disgust']
+	fear = emotion['fear']
+	happiness = emotion['happiness']
+	neutral = emotion['neutral']
+	sadness = emotion['sadness']
+	surprise = emotion['surprise']
+
+
 '''
 	f = open(faces, 'r')
 	json_data = json.load(f)
