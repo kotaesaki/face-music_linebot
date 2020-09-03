@@ -42,10 +42,10 @@ def FaceApi(file):
 	json_data = json.load(f)
 
 	name_list = ["anger","contempt","disgust","fear","happiness","neutral","sadness","surprise"]
-
-
+	
 	for name in name_list:
 		print('{0:6s} :{1} '.format(name,json_data["faceAttributes"]["emotion"][name],end='\t')
 	#spotify_api.pyに画像感情データを渡す
 	#spotify_api.SpotifyApi(result_formated["faceAttributes"])
 	
+return file
