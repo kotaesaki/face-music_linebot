@@ -14,7 +14,7 @@ spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 songs = pd.read_csv("top100.csv", index_col=0)
 songs.head(10)
 
-#print(songs.head(10))
+print(songs.head(10))
 
 '''
 個々の音楽取得
@@ -28,7 +28,7 @@ def SpotifyApi(tpl):
 	    song_info = song_info.append(df)
 	#index振り直し
 	song_info=song_info.reset_index(drop=True)
-	song_info.head(200)
+	song_info.head(10)
 	print(song_info.head(200))
 
 	'''
