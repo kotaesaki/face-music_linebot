@@ -28,28 +28,32 @@ ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
 CF.Key.set(KEY)
 CF.BaseUrl.set(ENDPOINT)
 
-faces = CF.face.detect(image_url, face_id=True, landmarks=False, attributes='emotion')
-# 出力結果を見やすく整形
-print(type(faces))
-print (faces[0])
+def getImage():
 
-total = faces[0]
-attr = total['faceAttributes']
-emotion = attr['emotion']
-anger = emotion['anger']
-contempt = emotion['contempt']
-disgust = emotion['disgust']
-fear = emotion['fear']
-happiness = emotion['happiness']
-neutral = emotion['neutral']
-sadness = emotion['sadness']
-surprise = emotion['surprise']
+	#画像のurl
+	image_url = file
+
+	faces = CF.face.detect(image_url, face_id=True, landmarks=False, attributes='emotion')
+	# 出力結果を見やすく整形
+	print(type(faces))
+	print (faces[0])
+
+	total = faces[0]
+	attr = total['faceAttributes']
+	emotion = attr['emotion']
+	anger = emotion['anger']
+	contempt = emotion['contempt']
+	disgust = emotion['disgust']
+	fear = emotion['fear']
+	happiness = emotion['happiness']
+	neutral = emotion['neutral']
+	sadness = emotion['sadness']
+	surprise = emotion['surprise']
 
 #一番数値の高い感情を取得
 def FaceApi1(file):
 
-	#画像のurl
-	image_url = file
+	getImage()
 
 	attr_list = [happiness, neutral, sadness]
 	print(type(attr_list))
@@ -72,8 +76,7 @@ def FaceApi1(file):
 #二番目に数値の高い感情を取得
 def FaceApi2(file):
 
-	#画像のurl
-	image_url = file
+	getImage()
 
 	count = 0 
 	for emotion3 in sorted(emotion.items(), key=lambda x:x[1], reverse=True):
