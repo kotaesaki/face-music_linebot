@@ -69,7 +69,7 @@ def SpotifyApi(tpl):
 		print('surprise') 
 		#song_info=song_info.reset_index(drop=True)
 		#song_info["rank"] = song_info.index + 1
-		print(song_info)
+		print(df)
 
 		ser_abs_diff = (df['danceability']-tpl[1]).abs()
 		min_val = ser_abs_diff.min()
