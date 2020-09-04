@@ -67,9 +67,8 @@ def FaceApi(file):
 	print(emotion2)
 
 	count = 0 
-	n = 1
-	for emotion3 in sorted(emotion.items(), key=lambda x:x[1], reverse=True)
-		if n==count: 
+	for emotion3 in sorted(emotion.items(), key=lambda x:x[1], reverse=True):
+		if 1 == count: 
 		return emotion3 
 	else: 
 		count+=1
