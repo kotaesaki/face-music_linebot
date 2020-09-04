@@ -67,34 +67,10 @@ def SpotifyApi(tpl):
 
 	if tpl[0] == 'happiness':
 		print('happiness')
-		ser_abs_diff = (df['valence']-tpl[1]).abs()
-		min_val = ser_abs_diff.min()
-
-		df[ser_abs_diff == min_val]
-		print(df[ser_abs_diff == min_val])
-
-		
-
-	elif tpl[0] == 'contempt':
-		print('a')
-	elif tpl[0] == 'disgust' or tpl[0] == 'fear':
-		print('a')
-	elif tpl[0] == 'anger':
-		print('a')
-	elif tpl[0] == 'neutral':
-		print('a')
-	elif tpl[0] == 'sadness':
-		print('a')
-	elif tpl[0] == 'surprise':
-		print('surprise')
-		ser_abs_diff = (song_info['danceability']-tpl[1]).abs()
+		ser_abs_diff = (song_info['valence']-tpl[1]).abs()
 		min_val = ser_abs_diff.min()
 
 		ts = song_info[ser_abs_diff == min_val]
-
-		index = ts.index
-		print("インデックス:", index)
-
 
 		href = ts['URL']
 		art = ts['artist']
@@ -109,13 +85,143 @@ def SpotifyApi(tpl):
 		print(d_art)
 		d_name = d['track']
 
+		return d_art,d_name,d_url
 
+	elif tpl[0] == 'contempt':
+		print('a')		
+		ser_abs_diff = (song_info['loudness']-tpl[1]).abs()
+		min_val = ser_abs_diff.max()
+
+		ts = song_info[ser_abs_diff == min_val]
+
+		href = ts['URL']
+		art = ts['artist']
+		name = ts['track']
+
+		d = ts.to_dict()
+		print(d)
+
+		d_url = d['URL']
+		print(d_url)
+		d_art = d['artist']
+		print(d_art)
+		d_name = d['track']
 
 		return d_art,d_name,d_url
 
-		#main.getMusic(track_href)
+
+	elif tpl[0] == 'disgust' or tpl[0] == 'fear':
+		print('a')
+		ser_abs_diff = (song_info['energy']-tpl[1]).abs()
+		min_val = ser_abs_diff.min()
+
+		ts = song_info[ser_abs_diff == min_val]
+
+		href = ts['URL']
+		art = ts['artist']
+		name = ts['track']
+
+		d = ts.to_dict()
+		print(d)
+
+		d_url = d['URL']
+		print(d_url)
+		d_art = d['artist']
+		print(d_art)
+		d_name = d['track']
+
+		return d_art,d_name,d_url
+
+	elif tpl[0] == 'anger':
+		print('anger')
+		ser_abs_diff = (song_info['loudness']-tpl[1]).abs()
+		min_val = ser_abs_diff.max()
+
+		ts = song_info[ser_abs_diff == min_val]
+
+		href = ts['URL']
+		art = ts['artist']
+		name = ts['track']
+
+		d = ts.to_dict()
+		print(d)
+
+		d_url = d['URL']
+		print(d_url)
+		d_art = d['artist']
+		print(d_art)
+		d_name = d['track']
+
+		return d_art,d_name,d_url
+
+	elif tpl[0] == 'neutral':
+		print('neutral')
+
+		ser_abs_diff = (song_info['valence']-tpl[1]).abs()
+		min_val = ser_abs_diff.min()
+
+		ts = song_info[ser_abs_diff == min_val]
+
+		href = ts['URL']
+		art = ts['artist']
+		name = ts['track']
+
+		d = ts.to_dict()
+		print(d)
+
+		d_url = d['URL']
+		print(d_url)
+		d_art = d['artist']
+		print(d_art)
+		d_name = d['track']
+
+		return d_art,d_name,d_url
 
 
+	elif tpl[0] == 'sadness':
+		print('sadness')
+
+		ser_abs_diff = (song_info['acousticness']-tpl[1]).abs()
+		min_val = ser_abs_diff.min()
+
+		ts = song_info[ser_abs_diff == min_val]
+
+		href = ts['URL']
+		art = ts['artist']
+		name = ts['track']
+
+		d = ts.to_dict()
+		print(d)
+
+		d_url = d['URL']
+		print(d_url)
+		d_art = d['artist']
+		print(d_art)
+		d_name = d['track']
+
+		return d_art,d_name,d_url
+
+	elif tpl[0] == 'surprise':
+		print('surprise')
+		ser_abs_diff = (song_info['danceability']-tpl[1]).abs()
+		min_val = ser_abs_diff.min()
+
+		ts = song_info[ser_abs_diff == min_val]
+
+		href = ts['URL']
+		art = ts['artist']
+		name = ts['track']
+
+		d = ts.to_dict()
+		print(d)
+
+		d_url = d['URL']
+		print(d_url)
+		d_art = d['artist']
+		print(d_art)
+		d_name = d['track']
+
+		return d_art,d_name,d_url
 
 	else:
 		print('a')

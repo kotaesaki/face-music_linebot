@@ -100,8 +100,8 @@ def handle_message(event):
     event.reply_token,
     TextSendMessage(text='あなたのは今、' + 
         str(face1[0][0]) + '：' + str(face1[0][1] * 100) + '%、' + 
-        str(face2[0]) + '：' + str(face2[1] * 100) + "%のような気分ですね！\n" + 
-        'アーティスト名：' + text1 + "\n" + '曲名：' + text2 + "\n" + text3))
+        str(face2[0]) + '：' + str(face2[1] * 100) + "%のような気分ですね！この曲が合うと思います\n\n" + 
+        'アーティスト名：' + text1 + "\n\n" + '曲名：' + text2 + "\n\n" + text3))
     #TextSendMessage(text=spotify_api.SpotifyApi())
     print("画像だよ")
 
