@@ -1,7 +1,7 @@
 import pandas as pd
 import spotipy 
 from spotipy.oauth2 import SpotifyClientCredentials
-import json
+import json, csv
 import face_api
 
 #認証
@@ -19,8 +19,7 @@ songs.head(10)
 個々の音楽取得
 '''
 
-def SpotifyApi(json):
-	pass
+def SpotifyApi(tpl):
 	song_info = pd.DataFrame()
 
 	for url in songs["URL"] : 
@@ -28,17 +27,44 @@ def SpotifyApi(json):
 	    song_info = song_info.append(df)
 	#index振り直し
 	song_info=song_info.reset_index(drop=True)
-	song_info.head(10)
-	print(song_info.head(10))
+	song_info.head(200)
+	print(song_info.head(200))
 
 	'''
 	valence（曲の明るさ)ごとに並べ替え
 	'''
-	song_info["rank"] = song_info.index + 1
-	song_info["top_20"]=(song_info["rank"] <= 20).astype(int)
+	#song_info["rank"] = song_info.index + 1
+	#song_info["top_20"]=(song_info["rank"] <= 20).astype(int)
 
-	tempo_range = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-	song_info["tempo_bin"] = pd.cut(song_info["valence"], tempo_range, labels = tempo_range[0:-1])
+	#tempo_range = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+	#song_info["tempo_bin"] = pd.cut(song_info["valence"], tempo_range, labels = tempo_range[0:-1])
 
-	song_info.sample(10)
-	print(song_info.sample(10))
+	#song_info.sample(10)
+	#print(song_info.sample(10))
+
+
+	if tpl[0] == 'happiness':
+		print('happiness')
+		ser_abs_diff = (df['valence']-tpl[1]).abs()
+		min_val = ser_abs_diff.min()
+
+		df[ser_abs_diff == min_val]
+		print(df[ser_abs_diff == min_val])
+
+	elif tpl[0] == 'contempt':
+		print('a')
+	elif tpl[0] == 'disgust' || tpl[0] == 'fear':
+		print('a')
+	elif tpl[0] == 'anger':
+		print('a')
+	elif tpl[0] == 'neutral':
+		print('a')
+	elif tpl[0] == 'sadness':
+		print('a')
+	elif tpl[0] == 'surprise':
+		print('a')
+	else:
+		print('a')
+
+
+

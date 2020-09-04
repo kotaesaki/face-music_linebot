@@ -67,6 +67,8 @@ def FaceApi1(file):
 	emotion2 = max(emotion.items(), key=lambda x:x[1])
 	print(emotion2)
 
+	spotify_api.SpotifyApi(emotion2)
+
 	return emotion2
 
 #二番目に数値の高い感情を取得
@@ -101,79 +103,3 @@ def FaceApi2(file):
 	print(emotion3)
 
 	return emotion3
-
-
-
-
-
-
-
-#faceAttributes項目を入れる
-def getAttributes(faceDictionary):
-	attr = faceDictionary['faceAttributes']
-	emotion = attr['emotion']
-	anger = emotion['anger']
-	contempt = emotion['contempt']
-	disgust = emotion['disgust']
-	fear = emotion['fear']
-	happiness = emotion['happiness']
-	neutral = emotion['neutral']
-	sadness = emotion['sadness']
-	surprise = emotion['surprise']
-
-
-'''
-	f = open(faces, 'r')
-	json_data = json.load(f)
-
-	name_list = ["anger","contempt","disgust","fear","happiness","neutral","sadness","surprise"]
-
-
-	for name in name_list:
-		print("{0:6s} ：{1}".format(name,json_data["faceAttributes"]["emotion"][name]),end="\t")
-	#spotify_api.pyに画像感情データを渡す
-	#spotify_api.SpotifyApi(result_formated["faceAttributes"])
-
-
-
-
-
-
-# Create an authenticated FaceClient.
-face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
-
-headers = {'Ocp-Apim-Subscription-Key': KEY}
-
-params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
-}
-
-#JSON出力
-try:
-	response = requests.post(ENDPOINT, params=params,
-                         headers=headers, json={"url": image_url}, timeout=0.1)
-	print(json.dumps(response.json()))
-
-except requests.exceptions.ConnectTimeout:
-	print('エラー！')
-
-
-
-
-single_image_name = os.path.basename(single_face_image_url)
-detected_faces = face_client.face.detect_with_url(url=single_face_image_url)
-if not detected_faces:
-    raise Exception('No face detected from image {}'.format(single_image_name))
-
-# Display the detected face ID in the first single-face image.
-# Face IDs are used for comparison to faces (their IDs) detected in other images.
-print('Detected face ID from', single_image_name, ':')
-for face in detected_faces: print (face.face_id)
-print()
-
-# Save this ID for use in Find Similar
-first_image_face_ID = detected_faces[0].face_id
-
-'''

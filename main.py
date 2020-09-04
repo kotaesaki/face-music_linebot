@@ -74,7 +74,7 @@ def handle_message(event):
     print("文字だよ")
     line_bot_api.reply_message(
     event.reply_token,
-    TextSendMessage(text="文字ですね"))
+    TextSendMessage(text="顔写真を送ってみてね！"))
 
 
 #送られてきたメッセージが画像の場合の処理
