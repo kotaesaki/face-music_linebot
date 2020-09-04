@@ -52,9 +52,21 @@ def FaceApi(file):
 
 	attr_list = [happiness, neutral, sadness]
 	print(type(attr_list))
+	print(emotion)
+	print(anger)
+	print(contempt)
+	print(disgust)
+	print(fear)
 	print(happiness)
 	print(neutral)
 	print(sadness)
+	print(surprise)
+
+	#辞書にする
+	kekka ={
+	'怒り':anger
+	''
+	}
 
 	return attr_list
 
