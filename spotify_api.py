@@ -26,9 +26,10 @@ def SpotifyApi(tpl):
 	for url in songs["URL"] : 
 	    df = pd.DataFrame.from_dict(spotify.audio_features(url))
 	    song_info = song_info.append(df)
+	    df['URL'] = songs["URL"]
 	#index振り直し
-	song_info=df.reset_index(drop=True)
-	song_info["rank"] = df.index + 1
+	song_info=song_info.reset_index(drop=True)
+	song_info["rank"] = song_info.index + 1
 
 	song_info.head(10)
 	print(song_info.head(200))
@@ -66,22 +67,17 @@ def SpotifyApi(tpl):
 	elif tpl[0] == 'sadness':
 		print('a')
 	elif tpl[0] == 'surprise':
-		print('surprise') 
-		#song_info=song_info.reset_index(drop=True)
-		#song_info["rank"] = song_info.index + 1
-		print(df)
-
+		print('surprise')
 		ser_abs_diff = (df['danceability']-tpl[1]).abs()
 		min_val = ser_abs_diff.min()
 
 		ts = df[ser_abs_diff == min_val]
-		#rank = ts["rank"]
+		track_href = ts['uri']
 		print(type(ts))
 		print(ts)
-		#print(rank)
-		print(songs)
-		#print(songs[ts[song_info.index + 1]])
-		#return rank
+		print(track_href)
+
+		return track_href
 
 		#main.getMusic(track_href)
 
