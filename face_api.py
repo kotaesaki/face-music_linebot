@@ -63,7 +63,7 @@ def FaceApi(file):
 	print(surprise)
 
 	#数値が高いもので並べ替え
-	emotion2 = sorted(emotion.items(), key=lambda x:x[1], reverse=True)
+	emotion2 = max(emotion.items(), key=lambda x:x[1])
 	print(emotion2)
 
 
