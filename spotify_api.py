@@ -66,8 +66,14 @@ def SpotifyApi(tpl):
 		ser_abs_diff = (df['danceability']-tpl[1]).abs()
 		min_val = ser_abs_diff.min()
 
-		df[ser_abs_diff == min_val]
-		print(df[ser_abs_diff == min_val])
+		ts = df[ser_abs_diff == min_val]
+		print(type(ts))
+		print(ts)
+		print(ts['track_href'])
+
+		#return ts['track_href']
+
+
 
 	else:
 		print('a')
