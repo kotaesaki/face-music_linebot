@@ -23,6 +23,7 @@ print(songs.head(10))
 def SpotifyApi(tpl):
 	song_info = pd.DataFrame()
 	song_info['URL'] = 0
+	song_info['URL'] = song_info['URL'].astype(str)
 	song_info['track'] = 0
 	song_info['artist'] = 0
 
@@ -30,8 +31,7 @@ def SpotifyApi(tpl):
 	for url in songs["URL"] : 
 		df = pd.DataFrame.from_dict(spotify.audio_features(url))
 		song_info = song_info.append(df)
-		url = url.replace("'", "")
-		float(url)
+
 		song_info.iat[i, 0] = url
 		i += 1
 	p = 0
