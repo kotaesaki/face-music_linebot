@@ -68,7 +68,7 @@ def SpotifyApi(tpl):
 		min_val = ser_abs_diff.min()
 
 		ts = df[ser_abs_diff == min_val]
-		track_href = ts['track_href']
+		track_href = ts['uri']
 		print(type(ts))
 		print(ts)
 		print(track_href)
