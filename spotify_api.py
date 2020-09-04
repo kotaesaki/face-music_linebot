@@ -71,10 +71,11 @@ def SpotifyApi(tpl):
 		min_val = ser_abs_diff.min()
 
 		ts = df[ser_abs_diff == min_val]
-		rank = ts['rank']
+		rank = ts["rank"]
 		print(type(ts))
 		print(ts)
 		print(rank)
+		print(songs)
 		#print(songs[ts[song_info.index + 1]])
 		return rank
 
