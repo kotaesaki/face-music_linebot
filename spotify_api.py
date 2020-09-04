@@ -90,7 +90,7 @@ def SpotifyApi(tpl):
 	elif tpl[0] == 'contempt':
 		print('a')		
 		ser_abs_diff = (song_info['loudness']-tpl[1]).abs()
-		min_val = ser_abs_diff.max()
+		min_val = ser_abs_diff.min()
 
 		ts = song_info[ser_abs_diff == min_val]
 
@@ -135,7 +135,7 @@ def SpotifyApi(tpl):
 	elif tpl[0] == 'anger':
 		print('anger')
 		ser_abs_diff = (song_info['loudness']-tpl[1]).abs()
-		min_val = ser_abs_diff.max()
+		min_val = ser_abs_diff.min()
 
 		ts = song_info[ser_abs_diff == min_val]
 
