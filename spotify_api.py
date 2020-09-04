@@ -85,15 +85,19 @@ def SpotifyApi(tpl):
 		ts['URL'] = ts['URL'].astype(str)
 		ts['artist'] = ts['artist'].astype(str)
 		ts['track'] = ts['track'].astype(str)
-		
+
 		href = ts['URL']
 		art = ts['artist']
 		name = ts['track']
+
+		csv = ts.to_csv("top1.csv")
+		print(csv)
 		print(type(ts))
 		print(ts)
 		print(type(href))
 		print(type(art))
 		print(type(track))
+
 
 
 		return art,name,href
