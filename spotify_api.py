@@ -24,6 +24,7 @@ def SpotifyApi(tpl):
 	song_info = pd.DataFrame()
 	song_info['URL'] = 0
 
+
 	for url in songs["URL"] : 
 	    df = pd.DataFrame.from_dict(spotify.audio_features(url))
 	    song_info = song_info.append(df)
@@ -74,7 +75,7 @@ def SpotifyApi(tpl):
 		min_val = ser_abs_diff.min()
 
 		ts = song_info[ser_abs_diff == min_val]
-		track_href = ts['uri']
+		track_href = ts['URL']
 		print(type(ts))
 		print(ts)
 		print(track_href)
