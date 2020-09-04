@@ -95,13 +95,13 @@ def handle_message(event):
     text1 = json.dumps(face1[1][0])
     text2 = json.dumps(face1[1][1])
     text3 = json.dumps(face1[1][2])
-    
+
     line_bot_api.reply_message(
     event.reply_token,
     TextSendMessage(text='あなたのは今、' + 
         str(face1[0][0]),'：',str(face1[0][1]),'、' + 
         str(face2[0]) + '：' + str(face2[1]) + "\n" + 
-        str(face1[1][0] + "\n" + str(face1[1][1]) + "\n" + str(face1[1][2]))))
+        text1 + "\n" + text2 + "\n" + text3))
     #TextSendMessage(text=spotify_api.SpotifyApi())
     print("画像だよ")
 
