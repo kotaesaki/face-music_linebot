@@ -90,8 +90,9 @@ def SpotifyApi(tpl):
 		art = ts['artist']
 		name = ts['track']
 
-		csv = ts.to_csv("top1.csv")
-		print(csv)
+		d = ts.to_dict()
+		print(d)
+		print(type(d))
 		print(type(ts))
 		print(ts)
 		print(type(href))
