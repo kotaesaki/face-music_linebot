@@ -97,7 +97,7 @@ def handle_message(event):
     TextSendMessage(text='あなたの感情は、' + 
         str(face1[0][0])  + '：' + str(face1[0][1]) + '、' + 
         str(face2[0]) + '：' + str(face2[1]) + 
-        str(face1[1])))
+        str(face1[1][0] + str(face1[1][1]) + str(face1[1][2]))))
     #TextSendMessage(text=spotify_api.SpotifyApi())
     print("画像だよ")
 
