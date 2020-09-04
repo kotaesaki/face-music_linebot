@@ -65,7 +65,6 @@ def FaceApi(file):
 	#辞書にする
 	kekka ={
 	'怒り':anger
-	''
 	}
 
 	return attr_list
