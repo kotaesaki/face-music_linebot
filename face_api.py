@@ -28,15 +28,6 @@ ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
 CF.Key.set(KEY)
 CF.BaseUrl.set(ENDPOINT)
 
-def getImage():
-
-	#画像のurl
-	image_url = file
-
-	faces = CF.face.detect(image_url, face_id=True, landmarks=False, attributes='emotion')
-	# 出力結果を見やすく整形
-	print(type(faces))
-	print (faces[0])
 
 	total = faces[0]
 	attr = total['faceAttributes']
@@ -53,7 +44,13 @@ def getImage():
 #一番数値の高い感情を取得
 def FaceApi1(file):
 
-	getImage()
+	#画像のurl
+	image_url = file
+
+	faces = CF.face.detect(image_url, face_id=True, landmarks=False, attributes='emotion')
+	# 出力結果を見やすく整形
+	print(type(faces))
+	print (faces[0])
 
 	attr_list = [happiness, neutral, sadness]
 	print(type(attr_list))
@@ -76,7 +73,13 @@ def FaceApi1(file):
 #二番目に数値の高い感情を取得
 def FaceApi2(file):
 
-	getImage()
+	#画像のurl
+	image_url = file
+
+	faces = CF.face.detect(image_url, face_id=True, landmarks=False, attributes='emotion')
+	# 出力結果を見やすく整形
+	print(type(faces))
+	print (faces[0])
 
 	count = 0 
 	for emotion3 in sorted(emotion.items(), key=lambda x:x[1], reverse=True):
