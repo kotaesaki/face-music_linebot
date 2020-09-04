@@ -66,6 +66,16 @@ def FaceApi(file):
 	emotion2 = max(emotion.items(), key=lambda x:x[1])
 	print(emotion2)
 
+	count = 0 
+	n = 1
+	for emotion3 in sorted(emotion.items(), key=lambda x:x[1], reverse=True)
+		if n==count: 
+		return emotion3 
+	else: 
+		count+=1
+
+	print(emotion3)
+
 
 
 	return attr_list
