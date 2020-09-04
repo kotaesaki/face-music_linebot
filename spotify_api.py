@@ -25,7 +25,9 @@ def SpotifyApi(tpl):
 	song_info['URL'] = 0
 	song_info['URL'] = song_info['URL'].astype(str)
 	song_info['track'] = 0
+	song_info['track'] = song_info['track'].astype(str)
 	song_info['artist'] = 0
+	song_info['artist'] = song_info['artist'].astype(str)
 
 	i = 0
 	for url in songs["URL"] : 
