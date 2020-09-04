@@ -34,7 +34,7 @@ def SpotifyApi(tpl):
 	'''
 	valence（曲の明るさ)ごとに並べ替え
 	'''
-	#song_info["rank"] = song_info.index + 1
+	song_info["rank"] = song_info.index + 1
 	#song_info["top_20"]=(song_info["rank"] <= 20).astype(int)
 
 	#tempo_range = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
@@ -51,6 +51,8 @@ def SpotifyApi(tpl):
 
 		df[ser_abs_diff == min_val]
 		print(df[ser_abs_diff == min_val])
+
+		
 
 	elif tpl[0] == 'contempt':
 		print('a')
@@ -72,6 +74,8 @@ def SpotifyApi(tpl):
 		print(type(ts))
 		print(ts)
 		print(track_href)
+
+		if ts[]
 
 		return track_href
 
