@@ -67,9 +67,11 @@ def FaceApi1(file):
 	emotion2 = max(emotion.items(), key=lambda x:x[1])
 	print(emotion2)
 
-	spotify_api.SpotifyApi(emotion2)
+	track_href = spotify_api.SpotifyApi(emotion2)
 
-	return emotion2
+
+
+	return emotion2, track_href
 
 #二番目に数値の高い感情を取得
 def FaceApi2(file):

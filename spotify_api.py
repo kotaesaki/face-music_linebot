@@ -3,6 +3,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import json, csv
 import face_api
+import main
 
 #認証
 cliend_id = '2bff6a42cf5945b18f74077b578d4264'
@@ -67,11 +68,14 @@ def SpotifyApi(tpl):
 		min_val = ser_abs_diff.min()
 
 		ts = df[ser_abs_diff == min_val]
+		track_href = ts['track_href']
 		print(type(ts))
 		print(ts)
-		print(ts['track_href'])
+		print(track_href)
 
-		#return ts['track_href']
+		return track_href
+
+		#main.getMusic(track_href)
 
 
 

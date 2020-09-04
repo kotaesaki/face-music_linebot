@@ -1,4 +1,5 @@
 from flask import Flask, request, abort
+import pandas as pd
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -26,6 +27,7 @@ from io import BytesIO
 import requests,json
 
 import face_api
+import spotify_api
 
 
 
@@ -92,7 +94,11 @@ def handle_message(event):
 
     line_bot_api.reply_message(
     event.reply_token,
-    TextSendMessage(text='あなたの感情は、' + str(face1[0])  + '：' + str(face1[1]) + '、' + str(face2[0] + '：' + str(face2[1]))))
+    TextSendMessage(text='あなたの感情は、' + 
+        str(face1[0])  + '：' + str(face1[0][1]) + '、' + 
+        str(face2[0]) + '：' + str(face2[1]) + 
+        str(face1[1])))
+    #TextSendMessage(text=spotify_api.SpotifyApi())
     print("画像だよ")
 
 def getImageLine(id):
@@ -110,6 +116,11 @@ def getImageLine(id):
     im.save(filename)
 
     return filename
+
+def getMusic(href):
+    href = 
+
+
 
 
 
