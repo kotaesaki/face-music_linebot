@@ -75,7 +75,7 @@ def SpotifyApi(tpl):
 		print(type(ts))
 		print(ts)
 		#print(rank)
-		print(songs[song_info.index + 1])
+		print(songs[ts[song_info.index + 1]])
 		return songs[song_info.index + 1]
 
 		#main.getMusic(track_href)
