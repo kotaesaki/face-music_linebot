@@ -28,18 +28,17 @@ ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
 CF.Key.set(KEY)
 CF.BaseUrl.set(ENDPOINT)
 
-
-	total = faces[0]
-	attr = total['faceAttributes']
-	emotion = attr['emotion']
-	anger = emotion['anger']
-	contempt = emotion['contempt']
-	disgust = emotion['disgust']
-	fear = emotion['fear']
-	happiness = emotion['happiness']
-	neutral = emotion['neutral']
-	sadness = emotion['sadness']
-	surprise = emotion['surprise']
+total = faces[0]
+attr = total['faceAttributes']
+emotion = attr['emotion']
+anger = emotion['anger']
+contempt = emotion['contempt']
+disgust = emotion['disgust']
+fear = emotion['fear']
+happiness = emotion['happiness']
+neutral = emotion['neutral']
+sadness = emotion['sadness']
+surprise = emotion['surprise']
 
 #一番数値の高い感情を取得
 def FaceApi1(file):
