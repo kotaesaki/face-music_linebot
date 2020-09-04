@@ -62,7 +62,13 @@ def SpotifyApi(tpl):
 	elif tpl[0] == 'sadness':
 		print('a')
 	elif tpl[0] == 'surprise':
-		print('a')
+		print('surprise')
+		ser_abs_diff = (df['danceability']-tpl[1]).abs()
+		min_val = ser_abs_diff.min()
+
+		df[ser_abs_diff == min_val]
+		print(df[ser_abs_diff == min_val])
+
 	else:
 		print('a')
 
