@@ -71,11 +71,11 @@ def SpotifyApi(tpl):
 		min_val = ser_abs_diff.min()
 
 		ts = df[ser_abs_diff == min_val]
-		track_href = ts['uri']
+		rank = ts['rank']
 		print(type(ts))
 		print(ts)
-		print(track_href)
-
+		print(rank)
+		print(songs[rank])
 		return track_href
 
 		#main.getMusic(track_href)
