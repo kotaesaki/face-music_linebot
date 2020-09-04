@@ -28,13 +28,14 @@ def SpotifyApi(tpl):
 	    song_info = song_info.append(df)
 	#index振り直し
 	song_info=song_info.reset_index(drop=True)
+	song_info["rank"] = song_info.index + 1
+
 	song_info.head(10)
 	print(song_info.head(200))
 
 	'''
 	valence（曲の明るさ)ごとに並べ替え
 	'''
-	song_info["rank"] = song_info.index + 1
 	#song_info["top_20"]=(song_info["rank"] <= 20).astype(int)
 
 	#tempo_range = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
