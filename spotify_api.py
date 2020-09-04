@@ -53,7 +53,7 @@ def SpotifyApi(tpl):
 
 	elif tpl[0] == 'contempt':
 		print('a')
-	elif tpl[0] == 'disgust' || tpl[0] == 'fear':
+	elif tpl[0] == 'disgust' or tpl[0] == 'fear':
 		print('a')
 	elif tpl[0] == 'anger':
 		print('a')
