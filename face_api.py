@@ -19,37 +19,37 @@ import codecs
 import spotify_api
 
 
-def FaceApi(file):
+#サブスクリプションキーの設定
+KEY = 'a3f5affaebb549449f69ccd3106d3e75'
 
-	#サブスクリプションキーの設定
-	KEY = 'a3f5affaebb549449f69ccd3106d3e75'
+#エンドポイント設定
+ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
 
-	#エンドポイント設定
-	ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
+#画像のurl
+image_url = file
 
-	#画像のurl
-	image_url = file
+CF.Key.set(KEY)
+CF.BaseUrl.set(ENDPOINT)
 
-	CF.Key.set(KEY)
-	CF.BaseUrl.set(ENDPOINT)
+faces = CF.face.detect(image_url, face_id=True, landmarks=False, attributes='emotion')
+# 出力結果を見やすく整形
+print(type(faces))
+print (faces[0])
 
-	faces = CF.face.detect(image_url, face_id=True, landmarks=False, attributes='emotion')
-	# 出力結果を見やすく整形
-	print(type(faces))
-	print (faces[0])
+total = faces[0]
+attr = total['faceAttributes']
+emotion = attr['emotion']
+anger = emotion['anger']
+contempt = emotion['contempt']
+disgust = emotion['disgust']
+fear = emotion['fear']
+happiness = emotion['happiness']
+neutral = emotion['neutral']
+sadness = emotion['sadness']
+surprise = emotion['surprise']
 
-	total = faces[0]
-	attr = total['faceAttributes']
-	emotion = attr['emotion']
-	anger = emotion['anger']
-	contempt = emotion['contempt']
-	disgust = emotion['disgust']
-	fear = emotion['fear']
-	happiness = emotion['happiness']
-	neutral = emotion['neutral']
-	sadness = emotion['sadness']
-	surprise = emotion['surprise']
-
+#一番数値の高い感情を取得
+def FaceApi1(file):
 	attr_list = [happiness, neutral, sadness]
 	print(type(attr_list))
 	print(emotion)
@@ -66,21 +66,23 @@ def FaceApi(file):
 	emotion2 = max(emotion.items(), key=lambda x:x[1])
 	print(emotion2)
 
+	return emotion2
+
+#二番目に数値の高い感情を取得
+def FaceApi2(file):
+
 	count = 0 
 	for emotion3 in sorted(emotion.items(), key=lambda x:x[1], reverse=True):
 		if 1 == count:
 			return emotion3 
 		else: 
 			count+=1
-
 	print(emotion3)
 
+	return emotion3
 
 
-	return attr_list
 
-	#result_formated = json.load(faces)
-	#print (result_formated["faceAttributes"])
 
 
 

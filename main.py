@@ -85,12 +85,14 @@ def handle_message(event):
     print(message_id)
 
     #face_api.pyで画像分析
-    face = face_api.FaceApi(getImageLine(message_id))
-    print(face)
+    face1 = face_api.FaceApi1(getImageLine(message_id))
+    face2 = face_api.FaceApi2(getImageLine(message_id))
+    print(face1)
+    print(face2)
 
     line_bot_api.reply_message(
     event.reply_token,
-    TextSendMessage(text='幸せ度は' + str(face[0]) + '中立は:' + str(face[1]) + '不幸せ度は：'+ str(face[2])))
+    TextSendMessage(text='あなたの感情は、' + str(face1[0])  + '：' + str(face1[1]) + '、' + str(face2[0] + '：' + str(face2[1]))))
     print("画像だよ")
 
 def getImageLine(id):
