@@ -92,6 +92,9 @@ def SpotifyApi(tpl):
 
 		ts = song_info[ser_abs_diff == min_val]
 
+		index = ts.index
+		print("インデックス:", index)
+
 
 		href = ts['URL']
 		art = ts['artist']
@@ -100,7 +103,7 @@ def SpotifyApi(tpl):
 		d = ts.to_dict()
 		print(d)
 
-		d_url = d['URL'][song_info.index]
+		d_url = d['URL'][]
 		print(d_url)
 
 
