@@ -94,10 +94,10 @@ def handle_message(event):
 
     line_bot_api.reply_message(
     event.reply_token,
-    TextSendMessage(text='あなたの感情は、' + 
-        str(face1[0][0])  + '：' + str(face1[0][1]) + '、' + 
-        str(face2[0]) + '：' + str(face2[1]) + "\n" + 
-        str(face1[1][0] + "\n" + str(face1[1][1]) + "\n" + str(face1[1][2]))))
+    TextSendMessage(text='あなたは今、',
+        str(face1[0][0]),'：',str(face1[0][1]),'、',
+        str(face2[0]),'：', str(face2[1]), "\n", 
+        str(face1[1][0], "\n", str(face1[1][1]), "\n", str(face1[1][2]))))
     #TextSendMessage(text=spotify_api.SpotifyApi())
     print("画像だよ")
 
