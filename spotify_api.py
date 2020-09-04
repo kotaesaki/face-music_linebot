@@ -82,6 +82,10 @@ def SpotifyApi(tpl):
 		min_val = ser_abs_diff.min()
 
 		ts = song_info[ser_abs_diff == min_val]
+		ts['URL'] = ts['URL'].astype(str)
+		ts['artist'] = ts['artist'].astype(str)
+		ts['track'] = ts['track'].astype(str)
+		
 		href = ts['URL']
 		art = ts['artist']
 		name = ts['track']
