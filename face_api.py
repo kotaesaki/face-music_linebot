@@ -62,10 +62,11 @@ def FaceApi(file):
 	print(sadness)
 	print(surprise)
 
-	#辞書にする
-	kekka ={
-	'怒り':anger
-	}
+	#数値が高いもので並べ替え
+	emotion.sort(reverse=True)
+	print(emotion)
+
+
 
 	return attr_list
 
