@@ -75,8 +75,6 @@ def SpotifyApi(tpl):
 		print(ts)
 		print(track_href)
 
-		if ts[]
-
 		return track_href
 
 		#main.getMusic(track_href)
