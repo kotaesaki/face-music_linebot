@@ -100,7 +100,7 @@ def SpotifyApi(tpl):
 		d = ts.to_dict()
 		print(d)
 
-		d_url = d['URL']
+		d_url = d['URL']['144']
 		print(d_url)
 
 
