@@ -103,12 +103,15 @@ def SpotifyApi(tpl):
 		d = ts.to_dict()
 		print(d)
 
-		d_url = d['URL'][index]
+		d_url = d['URL']
 		print(d_url)
+		d_art = d['artist']
+		print(d_art)
+		d_name = d['track']
 
 
 
-		return d['URL']
+		return d_art,d_name,d_url
 
 		#main.getMusic(track_href)
 
