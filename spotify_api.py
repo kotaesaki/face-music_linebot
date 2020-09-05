@@ -21,7 +21,7 @@ flag = True
 
 def SpotifyApi(tpl):
 
-	if flag　== True:
+	if flag == True:
 		song_info = pd.DataFrame()
 		song_info['URL'] = 0
 		song_info['URL'] = song_info['URL'].astype(str)
