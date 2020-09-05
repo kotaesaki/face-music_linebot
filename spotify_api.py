@@ -11,7 +11,7 @@ cliend_secret = '8a8199b3631d4e6782b628dc5fb8b68c'
 client_credentials_manager = spotipy.oauth2.SpotifyClientCredentials(cliend_id, cliend_secret)
 spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-songs = pd.read_csv("top100.csv", index_col=0, encoding="SHIFT-JIS")
+songs = pd.read_csv("top100.csv", index_col=0, encoding="utf-8")
 print(songs.head(10))
 
 '''
