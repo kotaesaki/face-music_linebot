@@ -51,18 +51,6 @@ def FaceApi1(file):
 	sadness = emotion['sadness']
 	surprise = emotion['surprise']
 
-	attr_list = [happiness, neutral, sadness]
-	print(type(attr_list))
-	print(emotion)
-	print(anger)
-	print(contempt)
-	print(disgust)
-	print(fear)
-	print(happiness)
-	print(neutral)
-	print(sadness)
-	print(surprise)
-
 	#数値が高いもので並べ替え
 	emotion2 = max(emotion.items(), key=lambda x:x[1])
 	print(emotion2)
