@@ -6,8 +6,8 @@ import face_api
 import main
 
 #認証
-cliend_id = '2bff6a42cf5945b18f74077b578d4264'
-cliend_secret = '8a8199b3631d4e6782b628dc5fb8b68c'
+cliend_id = 'xxxxxxxxxxxxxxxxxxxxxxxx'
+cliend_secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 client_credentials_manager = spotipy.oauth2.SpotifyClientCredentials(cliend_id, cliend_secret)
 spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
