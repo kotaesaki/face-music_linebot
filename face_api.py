@@ -20,7 +20,7 @@ import spotify_api
 
 
 #サブスクリプションキーの設定
-KEY = 'a3f5affaebb549449f69ccd3106d3e75'
+KEY = 'xxxxxxxxxxxxxxxxxxxx'
 
 #エンドポイント設定
 ENDPOINT = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0'
